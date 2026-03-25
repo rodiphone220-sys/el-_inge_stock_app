@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 220 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 145 60% 42%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 45 95% 55%;
+    --accent-foreground: 30 50% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 220 70% 50%;
+
+    --radius: 1rem;
+
+    /* Custom agro tokens */
+    --agro-blue: 220 70% 50%;
+    --agro-green: 145 60% 42%;
+    --agro-yellow: 45 95% 55%;
+    --agro-blue-light: 220 70% 95%;
+    --agro-green-light: 145 60% 93%;
+    --agro-yellow-light: 45 95% 92%;
+    --agro-surface: 0 0% 100%;
+    --agro-shadow: 220 20% 80%;
+    --agro-shadow-dark: 220 20% 70%;
+    --agro-highlight: 0 0% 100%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 15% 92%;
+    --card: 220 25% 12%;
+    --card-foreground: 220 15% 92%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 15% 92%;
+    --primary: 220 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 145 55% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 45 90% 55%;
+    --accent-foreground: 30 50% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 220 70% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  .neo-button {
+    @apply relative rounded-2xl font-semibold transition-all duration-150 select-none;
+    background: hsl(var(--agro-surface));
+    box-shadow:
+      6px 6px 12px hsl(var(--agro-shadow)),
+      -4px -4px 10px hsl(var(--agro-highlight));
+  }
+  .neo-button:active {
+    box-shadow:
+      inset 3px 3px 6px hsl(var(--agro-shadow)),
+      inset -2px -2px 5px hsl(var(--agro-highlight));
+    transform: scale(0.95);
+  }
+  .neo-card {
+    @apply rounded-2xl;
+    background: hsl(var(--agro-surface));
+    box-shadow:
+      8px 8px 16px hsl(var(--agro-shadow)),
+      -6px -6px 14px hsl(var(--agro-highlight));
+  }
+  .neo-inset {
+    @apply rounded-xl;
+    background: hsl(var(--background));
+    box-shadow:
+      inset 3px 3px 6px hsl(var(--agro-shadow)),
+      inset -2px -2px 5px hsl(var(--agro-highlight));
+  }
+
+  @keyframes pulse-alert {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+  }
+  .animate-pulse-alert {
+    animation: pulse-alert 1.5s ease-in-out infinite;
+  }
+}
